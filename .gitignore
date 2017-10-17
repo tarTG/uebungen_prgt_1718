@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+/uebung_*/bin/
+
+#i am using netbeans
+/uebung_*/nbproject/
+
+#and KDE
+*.directory
+
+
