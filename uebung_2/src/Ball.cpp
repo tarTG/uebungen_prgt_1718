@@ -18,7 +18,6 @@
  * Created on 19. Oktober 2017, 13:07
  */
 
-#include <SFML/Graphics/RectangleShape.hpp>
 
 #include "Ball.h"
 
