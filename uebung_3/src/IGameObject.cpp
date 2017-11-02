@@ -12,32 +12,10 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* 
- * File:   main.cpp
- * Author: Tobias Gerteis
- *
- * Created on 19. Oktober 2017, 13:07
+ * File:   GameObject.cpp
+ * Author: ro-lip
+ * 
+ * Created on 2. November 2017, 12:00
  */
 
-#ifndef BALL_H
-#define BALL_H
-
-#include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/Graphics.hpp>
 #include "IGameObject.h"
-
-class Ball : public IGameObject {
-public:
-    explicit Ball(sf::Vector2f dir_, sf::Vector2f position,float size);
-    
-    void update();
-    void draw(sf::RenderWindow& window) const override;
-    
-    
-    sf::Vector2f dir;
-private:
-    sf::CircleShape shape;
-
-};
-
-#endif /* BALL_H */
-

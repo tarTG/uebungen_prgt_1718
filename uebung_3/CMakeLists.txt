@@ -1,7 +1,7 @@
 #the cmake version
 cmake_minimum_required(VERSION 2.8)
 #project name
-project(uebung_1)
+project(uebung_3)
 #project version
 set(PROJECT_VERSION 0.1)
 #generate a message

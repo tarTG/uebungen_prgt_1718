@@ -20,15 +20,17 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "IGameObject.h"
+
 #ifndef PADDLE_H
 #define PADDLE_H
 
-class Paddle {
+class Paddle : public IGameObject {
 public:
     explicit Paddle(sf::Vector2f dir_, sf::Vector2f position,sf::Vector2f size);
     
-    void update();
-    void draw(sf::RenderWindow& window) const;
+    virtual void update() override;
+    void draw(sf::RenderWindow& window) const override;
     
     
     sf::Vector2f dir;

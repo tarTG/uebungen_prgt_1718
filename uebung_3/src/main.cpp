@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include <inttypes.h>
+#include <memory>
 #include <SFML/Graphics.hpp>
 
 #include "Paddle.h"
@@ -35,11 +36,15 @@ int main()
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
     
-    Paddle leftPaddle = Paddle(sf::Vector2f(0.01f,0.01f),sf::Vector2f(100.f,100.f),
-                                sf::Vector2f(5,10));
+    std::vector<std::unique_ptr<IGameObject>> objects; //here we save all objects
 
-    Ball ball = Ball(sf::Vector2f(0.01f,0.001f),sf::Vector2f(100.f,100.f),
-                                5);
+    objects.push_back(std::make_unique<Paddle>(sf::Vector2f(0.01f,0.01f),
+                        sf::Vector2f(100.f,100.f), sf::Vector2f(5,10)));
+
+    objects.push_back(std::make_unique<Ball>(sf::Vector2f(0.01f,0.001f),
+                    sf::Vector2f(100.f,100.f),  5));
+   
+   
     
     // Start the game loop
     while (window.isOpen())
@@ -51,14 +56,30 @@ int main()
             // Close window: exit
             if (event.type == sf::Event::Closed)
                 window.close();
+            if(event.type == sf::Event::KeyPressed) //get Key event
+            {
+                if(event.key.code == sf::Keyboard::Up) // when up-Key is pressed
+                {
+                    //cast IGameObject to paddle and change direction
+                    dynamic_cast<Paddle*>(objects.at(0).get())->dir = sf::Vector2f(0.0f,-0.01f);
+                }
+                else if(event.key.code == sf::Keyboard::Down)
+                {
+                    dynamic_cast<Paddle*>(objects.at(0).get())->dir = sf::Vector2f(0.0f,0.01f);
+                }                
+            }
         }
-        leftPaddle.update();
-        ball.update();
+        for(auto& o : objects) //update all objects
+        {
+            o->update();
+        }
         
         window.clear(sf::Color(0, 0, 0));
         
-        leftPaddle.draw(window);
-        ball.draw(window);
+        for(auto& o : objects) //draw all objects
+        {
+            o->draw(window);
+        }
         
         // Update the window
         window.display();
