@@ -17,6 +17,10 @@ include_directories("3rdParty" )
 #load SFML
 find_package(SFML 2 COMPONENTS system window graphics audio REQUIRED)
 
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wshadow")
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fsanitize=leak -fsanitize=undefined")
+
+
 include_directories(${SFML_INCLUDE_DIR})
 #set C++ standart
 set (CMAKE_CXX_STANDARD 14)

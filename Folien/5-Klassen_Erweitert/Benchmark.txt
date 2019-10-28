@@ -1,0 +1,33 @@
+ 
+
+ http://quick-bench.com/3oHpdYnBk7L18FqpTkBfDKHPt0Y
+ 
+struct T
+{
+  uint64_t a{1};
+  uint64_t b{3};
+  uint64_t c{2};
+  uint64_t d{3};
+  uint64_t e{4};
+
+};
+
+static void LateVariable(benchmark::State& state) {
+  // Code inside this loop is measured repeatedly
+  T t;
+  for (auto _ : state) {
+    t.c = t.e/t.d;
+    // Make sure the variable is not optimized away by compiler
+  }
+}
+
+// Register the function as a benchmark
+BENCHMARK(LateVariable);
+
+static void EarlyVariable(benchmark::State& state) {
+  T t;
+  for (auto _ : state) {
+    t.c = t.a / t.b;
+  }
+}
+BENCHMARK(EarlyVariable);

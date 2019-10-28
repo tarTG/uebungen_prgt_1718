@@ -1,0 +1,31 @@
+static void BM_INT8(benchmark::State& state) {
+  uint8_t i= 31;
+  while (state.KeepRunning())
+    i /= 3;
+}
+// Register the function as a benchmark
+BENCHMARK(BM_INT8);
+
+static void BM_INT16(benchmark::State& state) {
+  uint16_t i= 31;
+  while (state.KeepRunning())
+    i /= 3;
+}
+// Register the function as a benchmark
+BENCHMARK(BM_INT16);
+
+static void BM_INT32(benchmark::State& state) {
+  uint32_t i= 31;
+  while (state.KeepRunning())
+    i /= 3;
+}
+// Register the function as a benchmark
+BENCHMARK(BM_INT32);
+
+static void BM_INT64(benchmark::State& state) {
+  uint64_t i= 31;
+  while (state.KeepRunning())
+    i /= 3;
+}
+// Register the function as a benchmark
+BENCHMARK(BM_INT64); 

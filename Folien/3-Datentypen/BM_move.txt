@@ -1,0 +1,35 @@
+#include <cinttypes>
+
+
+
+
+static void BM_Copy(benchmark::State& state) {
+class Test
+{
+  public:
+  Test(){};
+  private:
+  std::vector<uint64_t> v = std::vector<uint64_t>(200);
+};
+
+  auto T = Test();
+  while (state.KeepRunning())
+    auto s = T;
+}
+// Register the function as a benchmark
+BENCHMARK(BM_Copy);
+
+static void BM_Move(benchmark::State& state) {
+  class Test
+{
+  public:
+  Test(){};
+  private:
+  std::vector<uint64_t> v = std::vector<uint64_t>(200);
+};
+  auto T = Test();
+  while (state.KeepRunning())
+    auto s = std::move(T);
+}
+// Register the function as a benchmark
+BENCHMARK(BM_Move); 

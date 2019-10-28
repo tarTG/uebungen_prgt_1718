@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/uebung_1.dir/main.cpp.o CMakeFiles/uebung_1.dir/Paddle.cpp.o CMakeFiles/uebung_1.dir/Ball.cpp.o CMakeFiles/uebung_1.dir/IGameObject.cpp.o  -o ../uebung_1 -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio 
