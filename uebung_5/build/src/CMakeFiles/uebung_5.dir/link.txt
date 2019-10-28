@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/uebung_5.dir/main.cpp.o CMakeFiles/uebung_5.dir/Paddle.cpp.o CMakeFiles/uebung_5.dir/Ball.cpp.o CMakeFiles/uebung_5.dir/IGameObject.cpp.o CMakeFiles/uebung_5.dir/Observed.cpp.o CMakeFiles/uebung_5.dir/Collision.cpp.o  -o ../uebung_5 -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio 
